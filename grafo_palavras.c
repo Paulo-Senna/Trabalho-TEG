@@ -354,8 +354,6 @@ int main(int argc, char *argv[]) {
 
     Grafo *g = (Grafo*)calloc(1, sizeof(Grafo));
     if (!g) { fprintf(stderr, "Memoria insuficiente.\n"); return 1; }
-
-    printf("=== TEG - Tarefa 2: Grafo de Palavras ===\n");
     printf("Carregando base: %s\n", arquivo);
 
     if (!carrega_grafo(g, arquivo)) {
