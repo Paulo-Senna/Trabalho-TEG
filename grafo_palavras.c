@@ -41,7 +41,15 @@ typedef struct {
 } MinHeap;
 
 
-//remove \r\n / converte para maiúsculas 
+
+
+
+
+
+
+
+
+//remove \r\n + converte para maiúsculas 
 void normaliza(char *s) {
     int len = strlen(s);
     while (len > 0 && (s[len-1] == '\n' || s[len-1] == '\r' || s[len-1] == ' '))
@@ -131,6 +139,12 @@ HeapNode heap_pop(MinHeap *h) {
 }
 
 
+
+
+
+
+
+
 //DIJKSTRA
 
 void dijkstra(Grafo *g, int src, int *dist, int *prev) {
@@ -160,6 +174,11 @@ void dijkstra(Grafo *g, int src, int *dist, int *prev) {
     }
     libera_heap(h);
 }
+
+
+
+
+
 
 //BFS pros componentes conexos
 
@@ -209,7 +228,7 @@ int carrega_grafo(Grafo *g, const char *arquivo) {
 
     printf("Palavras carregadas: %d\n", g->n);
 
-    //construção das arestas: O(n²) 
+    //construção das arestas: O(n^2) 
     printf("Construindo arestas...\n");
     for (int i = 0; i < g->n; i++) {
         for (int j = i + 1; j < g->n; j++) {
@@ -240,7 +259,6 @@ int busca_palavra(Grafo *g, const char *p) {
 }
 
 
-// MENU
 
 void imprime_caminho(Grafo *g, int *prev, int dst) {
     if (dst == -1) return;
@@ -381,7 +399,6 @@ int main(int argc, char *argv[]) {
         }
     } while (opcao != 0);
 
-    /* Liberação de memória */
     for (int i = 0; i < g->n; i++) {
         Aresta *e = g->vertices[i].lista;
         while (e) { Aresta *t = e->prox; free(e); e = t; }
